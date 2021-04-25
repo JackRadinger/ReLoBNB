@@ -1,0 +1,46 @@
+.user__container {
+    padding: .5rem;
+}
+
+.password__container {
+    padding: .5rem;
+}
+
+.submit__container {
+    padding: .5rem;
+}
+
+.submit-btn {
+    padding: .25rem;
+}
+
+.login-form {
+    justify-self: center;
+    width: 14rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+    background-color:white;
+}
+
+.form__container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem;
+}
+
+.User-tag {
+    font-weight: bold;
+}
+
+.password-tag {
+    font-weight: bold;
+}
+/* body {
+    background-color:rgba(201, 0, 0, 0.753)
+} */
+
+/* .email-input {
+    margin-left: 9px;
+} */
