@@ -1,6 +1,6 @@
 'use strict';
 
-const sequelize = require("sequelize");
+// const sequelize = require("sequelize");
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -24,6 +24,17 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
+      },
+      firstName: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+      },
+      lastName: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+      },
+      imgUrl: {
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
