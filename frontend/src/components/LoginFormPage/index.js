@@ -18,11 +18,20 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    console.log(credential)
+    console.log(password)
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
       });
+  }
+
+  const handleDemo = (e) => {
+    e.preventDefault();
+    const credential = 'demo@user.io';
+    const password = 'password';
+    return dispatch(sessionActions.login({ credential, password }))
   }
 
   return (
@@ -57,6 +66,9 @@ function LoginFormPage() {
             <button type="submit" className='submit-btn'>Log In</button>
         </div>
         </form>
+        <div>
+          <button type='submit' onClick={handleDemo}>Demo User</button>
+        </div>
       </div>
   );
 }
