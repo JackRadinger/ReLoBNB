@@ -34,23 +34,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4, 30]
+        len: [2, 30]
       }
     },
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4, 30]
+        len: [2, 30]
       }
     },
     imgUrl: {
       type: DataTypes.STRING,
-    }
+    },
   }, {
     defaultScope: {
       attributes: {
-        exlude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
+        exlude: ['hashedPassword', 'email', 'createdAt', 'updatedAt', 'firstName', 'lastName'],
       },
     },
     scopes: {
@@ -65,6 +65,9 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function(models) {
     // associations can be defined here
+    User.hasMany(models.Spot, { foreignKey: "userId" });
+    User.hasMany(models.Booking, { foreignKey: "bookingId" });
+    User.hasMany(models.Review, { foreignKey: "userId" });
   };
 
   User.prototype.toSafeObject = function() {
@@ -95,9 +98,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ username, email, password, firstName, lastName }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
+      firstName,
+      lastName,
       username,
       email,
       hashedPassword,
