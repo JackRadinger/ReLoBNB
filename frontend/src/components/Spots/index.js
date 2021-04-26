@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 
-function Spots() {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+function Spots(spot) {
+  spot = spot.spot
 
-
-
-
+  const handleClick = (e) => {
+    const spotId = e.target.attributes.value;
+    console.log(spotId)
+    return (
+      <Redirect to="/"/>
+    )
+  }
 
   return (
       <div className='spot__container'>
-          <h1>Spots</h1>
+          <h3 value={spot.id} onClick={handleClick}>{spot.city}</h3>
+          <div>${spot.cost} / Day</div>
+          <div>
+            <p>{spot.description}</p>
+          </div>
       </div>
   );
 }
