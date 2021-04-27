@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 
 function Spots(spot) {
@@ -11,6 +11,12 @@ function Spots(spot) {
       <Redirect to="/"/>
     )
   }
+
+  const getImages = async () => {
+    const response = await fetch('https://relobnb.s3.us-east-2.amazonaws.com/1/airbnb.jpg')
+    console.log(response)
+  }
+  getImages();
 
   return (
       <div className='spot__container'>
