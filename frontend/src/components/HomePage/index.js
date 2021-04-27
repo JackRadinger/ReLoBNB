@@ -19,6 +19,7 @@ function HomePage() {
 
   useEffect(() => {
     dispatch(spotReducer.getSpots())
+    dispatch(spotReducer.getImages())
   }, [dispatch])
 
   if (!sessionUser) return (
