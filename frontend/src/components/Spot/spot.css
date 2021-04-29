@@ -1,5 +1,29 @@
-img {
-    height: 200px;
+.spot__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "images"
+      "description"
+      'reviews'
+      'reviews';
+}
+
+.reviews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "review google"
+      "review-list google"
+      "review-list google";
+}
+
+.images {
+    display: grid;
+    justify-content: center;
 }
 
 .img__container {
@@ -14,4 +38,15 @@ img {
     width: 60px;
     margin-left: 4px;
     margin-bottom: 4px;
+}
+
+
+img {
+    height: 100%;
+    width: auto;
+}
+
+
+.slide {
+    height: 300px;
 }

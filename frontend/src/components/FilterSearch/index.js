@@ -24,7 +24,7 @@ function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSp
       }
       setNewSpots(newSpotsArr)
     }
-  },[searchTerm])
+  },[searchTerm, setNewSpots, spots])
 
 
 

@@ -5,6 +5,7 @@ import FilterSearch from '../FilterSearch/index';
 import Spots from '../Spots/index';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotReducer from '../../store/spot';
+import './Home.css'
 
 
 function HomePage() {
@@ -35,7 +36,7 @@ function HomePage() {
   return (
       <div className='home__container'>
           <ImageHeader />
-          <FilterSearch  newSpots={newSpots} searchTerm={searchTerm} setFilter={setFilter} setSearchTerm={setSearchTerm} setNewSpots={setNewSpots}/>
+          <FilterSearch  filter={filter} newSpots={newSpots} searchTerm={searchTerm} setFilter={setFilter} setSearchTerm={setSearchTerm} setNewSpots={setNewSpots}/>
           {newSpots.map((spot) => {
             return (
               <div key={spot.id}>

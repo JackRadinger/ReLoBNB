@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import Reviews from '../Reviews/index';
 import * as spotReducer from '../../store/spot';
 import DatePicker from 'react-date-picker';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import './spot.css';
 
 function Spot() {
@@ -17,8 +19,7 @@ function Spot() {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date())
 
-
-    const userId = useSelector(state => state.session.user.id)
+    const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spots.currentSpot);
     const reviews = useSelector(state => state.spots.reviews);
     const updateComment = (e) => setComment(e.target.value);
@@ -29,6 +30,9 @@ function Spot() {
         dispatch(spotReducer.getReviews(id));
     }, [dispatch, id])
 
+    if (!sessionUser) return (
+        <Redirect to="/login" />
+    );
 
     if(!spot) {
         return null
@@ -39,6 +43,7 @@ function Spot() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const userId = sessionUser.id
 
         const payload = {
             comment,
@@ -52,6 +57,7 @@ function Spot() {
 
     const handleBook = async (e) => {
         e.preventDefault();
+        const userId = sessionUser.id
 
         const payload = {
             userId: userId,
@@ -88,14 +94,24 @@ function Spot() {
     const val = checkAvailability();
 
 
+
     return (
         <div className='spot__container'>
-            <div className='img__container'>
-                <img src={spot.Images[0].url} alt="Didn't work huh? Looks like AWS doesn't want you to view this."/>
-                <img src={spot.Images[1].url} alt="Didn't work huh? Looks like AWS doesn't want you to view this."/>
-                <img src={spot.Images[2].url} alt="Didn't work huh? Looks like AWS doesn't want you to view this."/>
+            <div className='img__container images'>
+                <Carousel
+                width='700px'
+                className='carousel'
+                dynamicHeight={true}>
+                    {spot.Images.map((image) => {
+                        return (
+                            <div key={spot.id}>
+                                <img alt='' src={image.url} />
+                            </div>
+                        )
+                    })}
+                </Carousel>
             </div>
-            <div className='property__container'>
+            <div className='property__container description'>
                 <div>{spot.address}</div>
                 <h5 >Availablity: {val}</h5>
                 <div>{spot.cost} / Day</div>
@@ -103,9 +119,9 @@ function Spot() {
                     <div>{spot.city}</div>
                     <div>{spot.description}</div>
                 </div>
+                <button onClick={() => {setOpenModal(true)}}>Book</button>
             </div>
             <div>
-                <button onClick={() => {setOpenModal(true)}}>Book</button>
                 <Modal
                     isOpen={openModal}
                     onRequestClose={() => {setOpenModal(false)}}
@@ -136,33 +152,36 @@ function Spot() {
                     </form>
                 </Modal>
             </div>
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Review
-                    </label>
-                    <div>
-                        <textarea type='text-area' value={comment} onChange={updateComment} required></textarea>
-                    </div>
-                    <label>
-                        Rating
-                        <select onChange={updateRating}>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                            <option value='5'>5</option>
-                        </select>
-                    </label>
-                    <button type='submit'>Submit Review</button>
-                </form>
-            </div>
-            <div>
-                {reviews.map(review => {
-                    return (
-                        <Reviews review={review} key={spot.id + review.id}/>
-                    )
-                })}
+            <div className='reviews'>
+                <div className='review'>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Review
+                        </label>
+                        <div>
+                            <textarea type='text-area' value={comment} onChange={updateComment} required></textarea>
+                        </div>
+                        <label>
+                            Rating
+                            <select onChange={updateRating}>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                            </select>
+                        </label>
+                        <button type='submit'>Submit Review</button>
+                    </form>
+                </div>
+                <div className='google'>CONTENT</div>
+                <div className='review-list'>
+                    {reviews.map(review => {
+                        return (
+                            <Reviews review={review} key={spot.id + review.id}/>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );
