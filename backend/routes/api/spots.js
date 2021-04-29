@@ -1,7 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { User, Spot, Image, Booking } = require('../../db/models');
+const { User, Spot, Image, Booking, Review } = require('../../db/models');
+const review = require('../../db/models/review');
 
 const router = express.Router();
 
@@ -18,17 +19,77 @@ router.get(
 );
 
 router.get(
-  '/:id/images',
+  '/:id',
   asyncHandler(async (req, res) => {
     const id = req.params.id
-    console.log(req.params.id)
-    const images = await Image.findAll({where: {spotId: id}});
-
+    const spot = await Spot.findByPk(id, {
+      include: [
+        { model: Image, required: false, where: { spotId: id}},
+        { model: Booking, required: false, where: { spotId: id }}
+      ],
+    });
+    console.log(spot)
     return res.json(
-      images
+      spot
     );
   }),
 );
+
+router.get(
+  '/:id/reviews',
+  asyncHandler(async (req, res) => {
+    const id = req.params.id
+    const reviews = await Review.findAll({where: {spotId: id}, include: User });
+
+    return res.json(
+      reviews
+    );
+  }),
+);
+
+router.post(
+  '/:id/post/review',
+  asyncHandler(async (req, res) => {
+    const spotId = req.params.id
+    const { userId, rating, comment } = req.body;
+
+    const review = await Review.build({
+      userId: userId,
+      spotId: spotId,
+      rating: rating,
+      comment: comment,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    })
+
+    await review.save()
+    const newReview = await Review.findOne({where: {id: review.id}, include: User})
+    return res.json(
+      newReview
+    );
+
+  })
+);
+
+router.post(
+  '/bookSpot',
+  asyncHandler(async (req, res) => {
+    const { userId, spotId, startDate, endDate } = req.body;
+
+    const booking = await Booking.build({
+      userId: userId,
+      spotId: spotId,
+      startDate: startDate,
+      endDate: endDate,
+      createdAt: new Date(),
+    })
+
+    await booking.save();
+    return res.json(
+      booking
+    )
+  })
+)
 
 
 

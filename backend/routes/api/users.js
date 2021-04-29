@@ -28,6 +28,7 @@ const validateSignup = [
     handleValidationErrors,
 ];
 
+
 router.post(
     '',
     validateSignup,
