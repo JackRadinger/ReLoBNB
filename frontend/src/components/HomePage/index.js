@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import ImageHeader from '../ImageHeader/index';
 import FilterSearch from '../FilterSearch/index';
@@ -11,15 +11,12 @@ function HomePage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const spots = useSelector(state => state.spots.allSpots)
-  // const spots = useSelector(state => {
-  //   // return state.spots.map(spotId => state.spot[spotId]);
-  //   console.log('state', state.spots)
-  //   // console.log('array', Array.from(state.spots))
-  // })
+  const [filter, setFilter] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [newSpots, setNewSpots] = useState()
 
   useEffect(() => {
     dispatch(spotReducer.getSpots())
-    dispatch(spotReducer.getImages())
   }, [dispatch])
 
   if (!sessionUser) return (
@@ -30,18 +27,23 @@ function HomePage() {
     return null
   }
 
+  if(!newSpots) {
+    setNewSpots(spots)
+    return null
+  }
 
   return (
       <div className='home__container'>
           <ImageHeader />
-          <FilterSearch />
-          {spots.map((spot) => {
+          <FilterSearch  newSpots={newSpots} searchTerm={searchTerm} setFilter={setFilter} setSearchTerm={setSearchTerm} setNewSpots={setNewSpots}/>
+          {newSpots.map((spot) => {
             return (
               <div key={spot.id}>
                 <Spots spot={spot}/>
               </div>
             )
           })}
+
       </div>
   );
 }

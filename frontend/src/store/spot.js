@@ -1,6 +1,11 @@
+import { csrfFetch } from './csrf';
 
 const SET_SPOTS = 'spot/setSpots';
-const GET_IMAGES = 'spot/getImages'
+const GET_SPOT = 'spot/getSpot';
+const GET_REVIEWS = 'spot/getReviews';
+const POST_REVIEW = 'spot/postReview';
+const POST_BOOKING = 'spot/postBooking';
+const SORT_SPOTS = 'spots/sortSpots';
 
 const setSpots = (spots) => {
     return {
@@ -9,18 +14,46 @@ const setSpots = (spots) => {
     }
 }
 
-const setImages = (images) => {
+
+const setSpot = (spot) => {
     return {
-        type: GET_IMAGES,
-        images
+        type: GET_SPOT,
+        spot
     }
 }
 
-export const getImages = (id) => async (dispatch) => {
-    const response = await fetch(`/api/spots/${id}/images`);
+const setReviews = (reviews) => {
+    return {
+        type: GET_REVIEWS,
+        reviews
+    }
+}
+
+const setReview = (review) => {
+    return {
+        type: POST_REVIEW,
+        review
+    }
+}
+
+const setBooking = (booking) => {
+    return {
+        type: POST_BOOKING,
+        booking
+    }
+}
+
+export const sortSpots = () => {
+    return {
+        type: SORT_SPOTS,
+    }
+}
+
+export const getSpot = (id) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${id}`);
     if(response.ok) {
-        const images = await response.json();
-        dispatch(setImages(images))
+        const spot = await response.json();
+        dispatch(setSpot(spot))
     }
 
 }
@@ -31,10 +64,56 @@ export const getSpots = () => async (dispatch) => {
         const spots = await response.json();
         dispatch(setSpots(spots))
     }
-
 }
 
-const initialState = { spots: {} };
+export const getReviews = (id) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${id}/reviews`);
+    if(response.ok) {
+        const reviews = await response.json();
+        dispatch(setReviews(reviews))
+    }
+}
+
+export const postReview = (reviewInfo) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${reviewInfo.id}/post/review`, {
+        method: 'POST',
+        body: JSON.stringify(reviewInfo),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if(response.ok) {
+        const review = await response.json();
+        dispatch(setReview(review))
+        return review
+    }
+}
+
+export const postBooking = (bookingInfo) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/bookSpot`, {
+        method: 'POST',
+        body: JSON.stringify(bookingInfo),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if(response.ok) {
+        const booked = await response.json();
+        dispatch(setBooking(booked))
+        return booked
+    }
+}
+
+const sortList = (list) => {
+    return list.sort((spot1, spot2) => {
+      return spot1.cost - spot2.cost;
+    })
+};
+
+
+const initialState = {};
 
 const spotReducer = (state = initialState, action) => {
     let newState;
@@ -48,25 +127,30 @@ const spotReducer = (state = initialState, action) => {
             return {
                 ...action.spots,
                 ...state,
-                allSpots
+                allSpots,
             }
 
-        case GET_IMAGES:
-            // console.log(action.images)
-            // const allImages = {}
-            // // action.images.forEach(image => {
-            // //     if(!allImages[image.spotId]) {
-            // //         allImages[image.spotId] = {[image.id]: image}
-            // //     } else {
-            // //         allImages[image.spotId] = {allImages[image.spotId] , [image.id]: image}
-            // //     }
-            // // })
-            // return {
-            //     ...state,
-            //     allImages: {
-            //         [action.images.spotId] : action.images.map(image => {image})
-            //     }
-            // }
+        case GET_SPOT:
+            const spotState = { ...state }
+            spotState.currentSpot = action.spot
+            return spotState
+        case GET_REVIEWS:
+            const reviews = action.reviews
+            return {
+                ...state,
+                reviews
+            }
+        case POST_REVIEW:
+            newState = { ...state }
+            newState.reviews = [...state.reviews, action.review]
+            return newState
+        case POST_BOOKING:
+            newState = { ...state }
+            break
+        case SORT_SPOTS:
+            newState = { ...state }
+            newState.allSpots = sortList(newState.allSpots)
+            return newState
         default:
             return state;
     }
