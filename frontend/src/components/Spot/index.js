@@ -28,7 +28,9 @@ function Spot() {
     useEffect(() => {
         dispatch(spotReducer.getSpot(id));
         dispatch(spotReducer.getReviews(id));
+        window.scrollTo(0, 0);
     }, [dispatch, id])
+
 
     if (!sessionUser) return (
         <Redirect to="/login" />
@@ -112,14 +114,19 @@ function Spot() {
                 </Carousel>
             </div>
             <div className='property__container description'>
-                <div>{spot.address}</div>
-                <h5 >Availablity: {val}</h5>
-                <div>{spot.cost} / Day</div>
-                <div>
-                    <div>{spot.city}</div>
-                    <div>{spot.description}</div>
+                <div className='title'>{spot.address}</div>
+                <h5 className='availability'>Availablity: {val}</h5>
+                <div className='cost'>${spot.cost} / Day</div>
+                <div className='city'>
+                    <div >{spot.city}</div>
                 </div>
-                <button onClick={() => {setOpenModal(true)}}>Book</button>
+                <div className='sub-description'>
+                    <div className='description-title'>Description:</div>
+                    <div>{spot.description} Business meetings, and professional recordings can contain sensitive data, so security is something a transcription company should not overlook when providing services. Companies should therefore follow the various laws and industry best practice, especially so when serving law firms, government agencies or courts. Medical Transcription specifically is governed by HIPAA, which elaborates data security practices and compliance measures to be strictly followed, failure of which leads to legal action and penalties. Transcription security includes maintaining confidentiality of the data through information security practices including limiting access with passwords and ensuring a secure environment for data and appropriate methods of disposal of all materials and deletion of files. Personnel may be required to sign non-disclosure agreements on a regular basis as well as take various oaths regarding confidentiality and accuracy.</div>
+                </div>
+                <div className='book-btn'>
+                    <button className='book-btn-btn' onClick={() => {setOpenModal(true)}}>Book</button>
+                </div>
             </div>
             <div>
                 <Modal
@@ -153,25 +160,29 @@ function Spot() {
                 </Modal>
             </div>
             <div className='reviews'>
-                <div className='review'>
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            Review
-                        </label>
-                        <div>
-                            <textarea type='text-area' value={comment} onChange={updateComment} required></textarea>
+                <div >
+                    <form className='review' onSubmit={handleSubmit}>
+                        <div className='review-title'>
+                            <label className='review-title'>
+                                Review
+                            </label>
                         </div>
-                        <label>
-                            Rating
-                            <select onChange={updateRating}>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-                                <option value='5'>5</option>
-                            </select>
-                        </label>
-                        <button type='submit'>Submit Review</button>
+                        <div className='rating-container'>
+                            <label className='rating-label'>
+                                Rating
+                                <select className='rating' onChange={updateRating}>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                    <option value='5'>5</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div className='review-text-area'>
+                            <textarea placeholder='Review' className='review-text' type='text-area' value={comment} onChange={updateComment} required></textarea>
+                        </div>
+                        <button className='submit-review'type='submit'>Submit Review</button>
                     </form>
                 </div>
                 <div className='google'>CONTENT</div>

@@ -8,6 +8,7 @@
       "description"
       'reviews'
       'reviews';
+    padding: 80px;
 }
 
 .reviews {
@@ -19,6 +20,11 @@
       "review google"
       "review-list google"
       "review-list google";
+    padding: 80px;
+}
+
+.description {
+    padding: 80px;
 }
 
 .images {
@@ -27,11 +33,95 @@
 }
 
 .img__container {
-    border: 1px solid black;
+    padding-top: 40px;
+    width: 1000px;
+    margin: 25px;
+    background-color: white;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 18px #888888;
 }
 
 .property__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-template-areas:
+    'title cost'
+    'availability'
+    'city'
+    'sub-description'
+    'book-btn';
+    margin: 130px;
+    padding: 80px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 18px #888888;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 7px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding-left: 40px;
+}
+
+.availability {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 4/5;
+    /* font-size: 18px; */
+    align-items: center;
+    padding-left: 40px;
+    margin: 7px;
+}
+
+.cost {
+    grid-column: 5/6;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.city {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 3/5;
+    margin: 7px;
+    padding-left: 40px;
+    font-size:22px;
+}
+
+.book-btn {
+    grid-row: 6/7;
+    margin: 7px;
+    padding-left: 40px;
+    width: 30px;
+    height: 15px;
+}
+
+.book-btn-btn {
+    width: 6rem;
+    height: 2rem;
+    background-color: #51513D;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.sub-description {
     border: 1px solid black;
+    grid-row: 2/7;
+    grid-column: 7/12;
+    padding: 5px;
+}
+
+.description-title {
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
 .datePicker {
@@ -40,6 +130,65 @@
     margin-bottom: 4px;
 }
 
+.review {
+    margin: 50px;
+    margin-right: 150px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 18px #888888;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    /* grid-template-areas:
+    'review-title rating-container'
+    'submit-review review-text-area'
+    ; */
+    height: auto;
+}
+
+.review-title {
+    grid-row: 1/2;
+    grid-column: 1/3;
+    font-size: 25px;
+    padding-left: 20px;
+    margin: 7px;
+    margin-top: 30px;
+}
+
+.rating-container {
+    grid-column: 5/12;
+    grid-row: 1/2;
+    padding-top: 35px;
+}
+
+.submit-review {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    height: 50px;
+    width: 90px;
+    margin-left: 25px;
+}
+
+.review-text-area {
+    grid-row: 2/4;
+    grid-column: 5/10;
+}
+
+.review-text {
+    height: 200px;
+    width: 275px;
+}
+
+.rating-label {
+    font-size: 20px;
+    padding: 7px;
+}
+
+.rating {
+    font-size: 18px;
+    margin-left: 7px;
+}
 
 img {
     height: 100%;

@@ -16,7 +16,7 @@ function Reviews({review}) {
         <div className='review__container'>
             <h3>{review.User.username}</h3>
             <p>{review.comment}</p>
-            <span>{review.createdAt}</span>
+            <span className='created-at'>{review.createdAt}</span>
         </div>
     );
 }

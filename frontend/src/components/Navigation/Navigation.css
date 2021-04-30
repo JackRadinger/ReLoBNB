@@ -1,0 +1,71 @@
+.nav-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    'home profile';
+    /* background-color: rgb(228, 228, 228); */
+    background-image: linear-gradient(to right, white, #A6A867);
+    height: 3rem;
+    width: 100%;
+    margin: 0%;
+    border-bottom: 0.5px solid black;
+}
+
+.home {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.profile {
+    grid-column-start: 12;
+    grid-column-end: 13;
+    padding-top: 7px;
+    height: 30px;
+    position:static;
+    /* display: flex; */
+    text-align: right;
+    padding-right: 10px;
+    width: 257px;
+}
+
+.profile-btn {
+    align-self: flex-end;
+    height: 30px;
+    width: 70px;
+    background-color: #51513D;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    color: white;
+    /* position: fixed; */
+}
+
+.logo {
+    height: 35px;
+    border-radius: 25px;
+    padding-top: 5px;
+}
+
+.profile-dropdown {
+    background-color: white;
+    position: relative;
+    /* position: fixed; */
+    padding-right: 15px;
+    height: 155px;
+    width: 200px;
+    justify-content: space-between;
+    border: 1px solid black;
+    padding-top: 30px;
+    border-top: none;
+    margin-top: 11px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.username {
+    margin-bottom: 20px;
+}
+
+.user-email {
+    margin-bottom: 20px;
+}

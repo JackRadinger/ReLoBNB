@@ -2,7 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-// import './Navigation.css';
+import './Navigation.css';
+import logo from '../../resources/ReLoBNB-Logo.png'
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -10,7 +11,7 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ProfileButton className='profile' user={sessionUser} />
     );
   } else {
     sessionLinks = (
@@ -27,11 +28,14 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav-container'>
-      <div className='home-link'>
-        <NavLink exact to="/">Home</NavLink>
+      <div className='home'>
+        {/* <Logo /> */}
+        <NavLink exact to="/">
+          <img src={logo} alt='ReLoBNB Logo' className='logo' />
+        </NavLink>
         {/* {isLoaded && sessionLinks} */}
       </div>
-      <div className='session-links'>
+      <div className='profile'>
         {isLoaded && sessionLinks}
       </div>
     </div>

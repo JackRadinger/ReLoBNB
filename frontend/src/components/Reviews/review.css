@@ -1,3 +1,13 @@
 .review__container {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin: 10px;
+    margin-left: 50px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 0px 18px #888888;
+}
+
+.created-at {
+    font-size: 12px;
 }
