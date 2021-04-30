@@ -8,6 +8,7 @@ import DatePicker from 'react-date-picker';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import './spot.css';
+import MapContainer from '../GoogleMaps';
 
 function Spot() {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ function Spot() {
     useEffect(()=> {
         window.scrollTo(0, 0);
     })
-    
+
     useEffect(() => {
         dispatch(spotReducer.getSpot(id));
         dispatch(spotReducer.getReviews(id));
@@ -196,7 +197,9 @@ function Spot() {
                         <button className='submit-review'type='submit'>Submit Review</button>
                     </form>
                 </div>
-                <div className='google'>CONTENT</div>
+                <div className='google'>
+                    <MapContainer />
+                </div>
                 <div className='review-list'>
                     {newReviews.map(review => {
                         return (

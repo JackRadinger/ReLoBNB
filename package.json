@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/JackRadinger/ReLoBNB/issues"
   },
-  "homepage": "https://github.com/JackRadinger/ReLoBNB#readme"
+  "homepage": "https://github.com/JackRadinger/ReLoBNB#readme",
+  "dependencies": {
+    "google-map-react": "^2.1.9",
+    "google-maps-react": "^2.0.6"
+  }
 }
