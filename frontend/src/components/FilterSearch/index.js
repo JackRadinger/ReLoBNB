@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotReducer from '../../store/spot';
 import './Filter.css';
@@ -6,10 +6,19 @@ import './Filter.css';
 function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSpots}) {
   const dispatch = useDispatch();
   const spots = useSelector(state => state.spots.allSpots);
+  const [active, setActive] = useState(false)
 
+  const randomNumber = () => {
+    return `${Math.random()*10}`
+  }
+  
   const handleClick = () => {
     dispatch(spotReducer.sortSpots())
-    setFilter('filtered')
+    setFilter(randomNumber())
+  }
+
+  const handleAllSpots = () => {
+    dispatch(spotReducer.getSpots())
   }
 
   useEffect(()=> {
@@ -24,6 +33,8 @@ function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSp
         }
       }
       setNewSpots(newSpotsArr)
+    } else {
+      setNewSpots(spots)
     }
   },[searchTerm, setNewSpots, spots])
 
@@ -34,6 +45,9 @@ function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSp
       <h4 className='filter-title'>Filter</h4>
       <div className='search-btn-div'>
         <button className='search-btn' onClick={handleClick} >Lowest Price</button>
+      </div>
+      <div>
+        <button className='all-spots' onClick={handleAllSpots}> All Spots</button>
       </div>
       <div className='search-bar-title'>
         Search
