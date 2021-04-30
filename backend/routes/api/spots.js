@@ -39,7 +39,7 @@ router.get(
   '/:id/reviews',
   asyncHandler(async (req, res) => {
     const id = req.params.id
-    const reviews = await Review.findAll({where: {spotId: id}, include: User });
+    const reviews = await Review.findAll({where: {spotId: id}, include: User, order: [['createdAt','ASC']] });
 
     return res.json(
       reviews
