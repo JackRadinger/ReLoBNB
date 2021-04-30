@@ -18,8 +18,6 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    console.log(credential)
-    console.log(password)
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
@@ -31,6 +29,7 @@ function LoginFormPage() {
     e.preventDefault();
     const credential = 'demo@user.io';
     const password = 'password';
+    console.log(credential, password)
     return dispatch(sessionActions.login({ credential, password }))
   }
 
