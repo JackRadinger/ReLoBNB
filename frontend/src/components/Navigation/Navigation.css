@@ -35,7 +35,7 @@
     width: 70px;
     background-color: #51513D;
     border-radius: 15px;
-    border: 1px solid lightgray;
+    border: none;
     color: white;
     /* position: fixed; */
 }

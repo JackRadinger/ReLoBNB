@@ -35,15 +35,21 @@ function HomePage() {
 
   return (
       <div className='home__container'>
-          <ImageHeader />
+        <div className='ImageHeader'>
+          <ImageHeader/>
+        </div>
+        <div className='filterSearch'>
           <FilterSearch  filter={filter} newSpots={newSpots} searchTerm={searchTerm} setFilter={setFilter} setSearchTerm={setSearchTerm} setNewSpots={setNewSpots}/>
+        </div>
+        <div className='all-spots__container'>
           {newSpots.map((spot) => {
             return (
-              <div key={spot.id}>
+              <div className='spots' key={spot.id}>
                 <Spots spot={spot}/>
               </div>
             )
           })}
+        </div>
 
       </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 // import * as spotReducer from '../../store/spot';
 import './review.css';
+import Moment from 'react-moment';
 
 
 function Reviews({review}) {
@@ -14,9 +15,9 @@ function Reviews({review}) {
 
     return (
         <div className='review__container'>
-            <h3>{review.User.username}</h3>
+            <h3 className='review-user'>{review.User.username}</h3>
             <p>{review.comment}</p>
-            <span className='created-at'>{review.createdAt}</span>
+            <Moment className='created-at' format="DD/MM/YYYY">{review.createdAt}</Moment>
         </div>
     );
 }

@@ -55,6 +55,7 @@ function Spot() {
         }
 
         await dispatch(spotReducer.postReview(payload))
+        setComment('')
     }
 
     const handleBook = async (e) => {
@@ -69,7 +70,7 @@ function Spot() {
         }
 
         await dispatch(spotReducer.postBooking(payload))
-
+        dispatch(spotReducer.getReviews(id));
     }
 
     const customStyles = {
@@ -94,9 +95,9 @@ function Spot() {
     }
 
     const val = checkAvailability();
-
-
-
+    console.log(reviews)
+    const newReviews = [...reviews]
+    newReviews.reverse()
     return (
         <div className='spot__container'>
             <div className='img__container images'>
@@ -187,7 +188,7 @@ function Spot() {
                 </div>
                 <div className='google'>CONTENT</div>
                 <div className='review-list'>
-                    {reviews.map(review => {
+                    {newReviews.map(review => {
                         return (
                             <Reviews review={review} key={spot.id + review.id}/>
                         )

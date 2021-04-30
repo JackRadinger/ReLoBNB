@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotReducer from '../../store/spot';
+import './Filter.css';
 
 function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSpots}) {
   const dispatch = useDispatch();
@@ -29,16 +30,18 @@ function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSp
 
 
   return (
-      <div className='filter__container'>
-          <div>
-            <div>Filter</div>
-            <div>
-              Search
-              <input onChange={(e) => setSearchTerm(e.target.value)}></input>
-            </div>
-            <button onClick={handleClick} >Price</button>
-          </div>
+    <div className='filter__container'>
+      <h4 className='filter-title'>Filter</h4>
+      <div className='search-btn-div'>
+        <button className='search-btn' onClick={handleClick} >Lowest Price</button>
       </div>
+      <div className='search-bar-title'>
+        Search
+      </div>
+      <div className='search-bar'>
+        <input onChange={(e) => setSearchTerm(e.target.value)}></input>
+      </div>
+    </div>
   );
 }
 

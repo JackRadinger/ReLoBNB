@@ -1,3 +1,35 @@
 .image {
     height: 30px;
 }
+
+.spot__container {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: fit-content;
+}
+
+.spot-title {
+    grid-row: 1/3;
+    grid-column: 1/3;
+}
+
+
+.image0 {
+    grid-row: 3/7;
+    grid-column: 1/3;
+}
+
+.image1 {
+    grid-row: 3/7;
+    grid-column: 3/5;
+}
+
+.image2 {
+    grid-row: 3/7;
+    grid-column: 6/9;
+}
+
+.spot-link {
+    text-decoration: none;
+}

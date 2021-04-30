@@ -1,12 +1,9 @@
 import React from 'react';
-// import { Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import { useSelector } from 'react-redux';
+import "./ImageHeader.css";
+
 
 function ImageHeader() {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
   const spots = useSelector(state => state.spots.allSpots);
 
   const carouselImages = [];
@@ -21,28 +18,24 @@ function ImageHeader() {
   }
 
   getRandomImages(spots)
-  console.log(carouselImages)
 
   return (
       <div className='image-header__container'>
-          <h1>Image Header</h1>
-          <div>
-            <div className='image-header-1'>
-              <img alt="" src={carouselImages[0]} />
-            </div>
-            <div className='image-header-2'>
-              <img alt="" src={carouselImages[1]} />
-            </div>
-            <div className='image-header-3'>
-              <img alt="" src={carouselImages[2]} />
-            </div>
-            <div className='image-header-4'>
-              <img alt="" src={carouselImages[3]} />
-            </div>
-            <div className='image-header-5'>
-              <img alt="" src={carouselImages[4]} />
-            </div>
-          </div>
+        <div className='image-header-1'>
+          <img className='image-header-image' alt="" src={carouselImages[0]} />
+        </div>
+        <div className='image-header-2'>
+          <img className='image-header-image image-header-2' alt="" src={carouselImages[1]} />
+        </div>
+        <div className='image-header-3'>
+          <img className='image-header-image' alt="" src={carouselImages[2]} />
+        </div>
+        <div className='image-header-4'>
+          <img className='image-header-image' alt="" src={carouselImages[3]} />
+        </div>
+        <div className='image-header-5'>
+          <img className='image-header-image' alt="" src={carouselImages[4]} />
+        </div>
       </div>
   );
 }
