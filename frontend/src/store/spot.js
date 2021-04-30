@@ -6,6 +6,7 @@ const GET_REVIEWS = 'spot/getReviews';
 const POST_REVIEW = 'spot/postReview';
 const POST_BOOKING = 'spot/postBooking';
 const SORT_SPOTS = 'spots/sortSpots';
+const DELETE_REVIEW = 'spots/deleteReview';
 
 const setSpots = (spots) => {
     return {
@@ -40,6 +41,13 @@ const setBooking = (booking) => {
     return {
         type: POST_BOOKING,
         booking
+    }
+}
+
+const setDeletedReview = (reviewInfo) => {
+    return {
+        type: DELETE_REVIEW,
+        reviewInfo
     }
 }
 
@@ -106,6 +114,19 @@ export const postBooking = (bookingInfo) => async (dispatch) => {
     }
 }
 
+export const deleteReview = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/review/${id}`, {
+        method: 'DELETE'
+    });
+
+    if(response.ok) {
+        // const review = await response.json();
+        // console.log('deleted review', review)
+        dispatch(setDeletedReview(id))
+    }
+
+}
+
 const sortList = (list) => {
     return list.sort((spot1, spot2) => {
       return spot1.cost - spot2.cost;
@@ -151,6 +172,10 @@ const spotReducer = (state = initialState, action) => {
             newState = { ...state }
             newState.allSpots = sortList(newState.allSpots)
             return newState
+        case DELETE_REVIEW:
+            newState = { ...state }
+            const newReviews = newState.reviews.filter(review => review.id !== action.reviewInfo);
+            return newState.reviews = [...newReviews]
         default:
             return state;
     }

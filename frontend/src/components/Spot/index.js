@@ -17,7 +17,8 @@ function Spot() {
     const [rating, setRating] = useState(1);
     const [openModal, setOpenModal] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date())
+    const [endDate, setEndDate] = useState(new Date());
+    const [update, setUpdate] = useState('old')
 
     const sessionUser = useSelector(state => state.session.user);
     const spot = useSelector(state => state.spots.currentSpot);
@@ -25,23 +26,32 @@ function Spot() {
     const updateComment = (e) => setComment(e.target.value);
     const updateRating = (e) => setRating(e.target.value);
 
+    console.log('HERE', update)
+
+    useEffect(()=> {
+        window.scrollTo(0, 0);
+    })
+    
     useEffect(() => {
         dispatch(spotReducer.getSpot(id));
         dispatch(spotReducer.getReviews(id));
-        window.scrollTo(0, 0);
-    }, [dispatch, id])
+        // window.scrollTo(0, 0);
+    }, [dispatch, id, update])
+
+
 
 
     if (!sessionUser) return (
         <Redirect to="/login" />
     );
-
     if(!spot) {
+            return null
+        }
+    if (!reviews) {
         return null
     }
-     if (!reviews) {
-        return null
-    }
+    console.log('here2')
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -95,9 +105,9 @@ function Spot() {
     }
 
     const val = checkAvailability();
-    console.log(reviews)
     const newReviews = [...reviews]
     newReviews.reverse()
+
     return (
         <div className='spot__container'>
             <div className='img__container images'>
@@ -190,7 +200,7 @@ function Spot() {
                 <div className='review-list'>
                     {newReviews.map(review => {
                         return (
-                            <Reviews review={review} key={spot.id + review.id}/>
+                            <Reviews setUpdate={setUpdate} review={review} key={spot.id + review.id}/>
                         )
                     })}
                 </div>

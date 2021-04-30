@@ -91,6 +91,17 @@ router.post(
   })
 )
 
+router.delete(
+  '/review/:id',
+  asyncHandler(async (req,res) => {
+    const id = req.params.id
+    const review = await Review.findByPk(id);
+    await review.destroy();
+
+    return res.json()
+  })
+)
+
 
 
 
