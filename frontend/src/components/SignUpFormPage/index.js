@@ -11,6 +11,8 @@ function SignupFormPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
 
   if (sessionUser) return <Redirect to="/" />;
 
@@ -18,7 +20,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
+      return dispatch(sessionActions.signup({ firstName, lastName, email, username, password }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -33,6 +35,32 @@ function SignupFormPage() {
         <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
+        <div>
+            <label>
+                First Name
+            </label>
+            <input
+                className='first-name-input'
+                type="text"
+                value={firstName}
+                placeholder='First Name'
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+            />
+        </div>
+        <div>
+            <label>
+                Last Name
+            </label>
+            <input
+                className='last-name-input'
+                type="text"
+                value={lastName}
+                placeholder='Last Name'
+                onChange={(e) => setLastName(e.target.value)}
+                required
+            />
+        </div>
         <div>
             <label>
                 Email
