@@ -1,7 +1,12 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
+const apiRouter = require('./api');
+
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const spotRouter = require('./spots.js')
+
+router.use('/api', apiRouter);
 
 router.use('/session', sessionRouter);
 
