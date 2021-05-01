@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Spot = sequelize.define('Spot', {
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     cost: {
@@ -13,8 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    lat: {
+      type: Sequelize.NUMERIC,
+      allowNull: false
+    },
+    long: {
+      type: Sequelize.NUMERIC,
+      allowNull: false
+    },
     address: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     city: {

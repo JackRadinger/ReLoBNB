@@ -9,7 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
-        type: Sequelize.STRING(120),
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
+      lat: {
+        type: Sequelize.NUMERIC,
+        allowNull: false
+      },
+      long: {
+        type: Sequelize.NUMERIC,
         allowNull: false
       },
       cost: {
@@ -21,7 +29,7 @@ module.exports = {
         allowNull: false
       },
       address: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       city: {
