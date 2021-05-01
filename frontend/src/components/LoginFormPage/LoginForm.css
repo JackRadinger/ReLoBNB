@@ -20,11 +20,13 @@
     border: 1px solid black;
     border-radius: 10px;
     padding-left: 2rem;
+    padding-top: 15px;
     padding-bottom: 1.5rem;
     background-color:white;
 }
 
 .form__container {
+    height: 235px;
     display: flex;
     justify-content: center;
     padding-top: 10rem;
@@ -37,10 +39,17 @@
 .password-tag {
     font-weight: bold;
 }
-/* body {
-    background-color:rgba(201, 0, 0, 0.753)
-} */
 
-/* .email-input {
-    margin-left: 9px;
-} */
+.login-page {
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1413&q=80');
+    background-size: cover;
+}
+
+.demo-user {
+    padding: .5rem;
+}
+
+.demo-user-btn {
+    padding: .25rem;
+}

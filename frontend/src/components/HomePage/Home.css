@@ -6,18 +6,17 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    grind-template-areas:
+    grid-template-areas:
     'ImageHeader'
     'filterSearch'
     'all-spots__container'
     ;
-    /* justify-content: center; */
 }
 
 .ImageHeader {
     grid-column: 1/2;
     grid-row: 1/2;
-    padding: 80px 150px;
+    padding: 50px 150px;
     height: 260px;
 }
 
@@ -31,7 +30,5 @@ body {
 .all-spots__container {
     grid-column: 1/2;
     grid-row: 3/4;
-    background-color: white;
-    border-radius: 15px;
-    margin: 0px 150px;
+
 }

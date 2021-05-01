@@ -15,10 +15,12 @@ function Spots({spot}) {
   }
 
   return (
-      <div>
+      <>
         <a className='spot-link' href={`/spot/${spot.id}`} spot={spot}>
-          <div className='spot__container'>
-              <h3 className='spot-title' value={spot.id}>{spot.city}</h3>
+          {/* <div className='spot__container'> */}
+            <div className='spot-title'>
+              <h3 value={spot.id}>{spot.city}</h3>
+            </div>
               <div className='spot-cost'>${spot.cost} / Day</div>
               {images.map((image, i) => {
                 return (
@@ -28,11 +30,12 @@ function Spots({spot}) {
                 )
               })}
               <div className='spot-description'>
+                <label className='description-title'>Description</label>
                 <p>{spot.description}</p>
               </div>
-            </div>
+            {/* </div> */}
           </a>
-      </div>
+      </>
   );
 }
 

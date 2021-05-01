@@ -1,34 +1,70 @@
 .image {
-    height: 30px;
+    float: left;
+    height: 175px;
+    width:  225px;
+    object-fit: cover;
 }
 
-.spot__container {
+.spot-link {
     display: grid;
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     height: fit-content;
-    grid-template-areas: ;
+    padding: 20px;
+    margin: 20px 150px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 18px #888888;
+
 }
+
+a {color:#51513D;}         /* Unvisited link  */
+a:visited {color:#51513D;} /* Visited link    */
+a:hover {color:#51513D;}   /* Mouse over link */
+a:active {color:#51513D;}
 
 .spot-title {
     grid-row: 1/3;
     grid-column: 1/3;
+    height: 60px;
+    justify-self: center;
+    margin-top: 20px;
+}
+
+.spot-cost {
+    grid-row: 1/3;
+    grid-column: 3/5;
+    justify-self: center;
+    margin-top: 20px;
+}
+
+.spot-description {
+    grid-row: 2/7;
+    grid-column: 7/13;
+    border: 1px solid black;
+    padding: 7px;
 }
 
 
 .image0 {
     grid-row: 3/7;
     grid-column: 1/3;
+    justify-self: center;
+    border: 1px solid black;
 }
 
 .image1 {
     grid-row: 3/7;
     grid-column: 3/5;
+    justify-self: center;
+    border: 1px solid black;
 }
 
 .image2 {
     grid-row: 3/7;
-    grid-column: 6/9;
+    grid-column: 5/7;
+    justify-self: center;
+    border: 1px solid black;
 }
 
 .spot-link {

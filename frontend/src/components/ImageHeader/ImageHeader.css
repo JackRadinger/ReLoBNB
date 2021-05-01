@@ -3,7 +3,7 @@
     grid-template-columns: repeat(5,1fr);
     grid-row: 1fr;
     width: fit-content;
-    height: 260px;
+    height: 240px;
     margin-right: 0;
     background-color: white;
     padding: 20px;
@@ -11,47 +11,58 @@
     grid-template-areas: 'image-header-1 image-header-2 image-header-3 image-header-4 image-header-5';
     overflow: hidden;
     border-radius: 15px;
+    box-shadow: 0px 0px 18px #888888;
 }
 
 .image-header-1 {
+    float: left;
+    object-fit: cover;
     grid-column: 1/2;
     grid-row: 1/2;
     width: 300px;
     object-fit: contain;
-    height: 260px;
+    height: 240px;
 }
 
 .image-header-2 {
+    float: left;
+    object-fit: cover;
     grid-column: 2/3;
     grid-row: 1/2;
     width: 300px;
     height: auto;
     overflow: hidden;
-    height: 260px;
+    height: 240px;
 }
 
 .image-header-3 {
+    float: left;
+    object-fit: cover;
     grid-column: 3/4;
     grid-row: 1/2;
     width: 300px;
-    height: 260px;
+    height: 240px;
 }
 
 .image-header-4 {
+    float: left;
+    object-fit: cover;
     grid-column: 4/5;
     grid-row: 1/2;
     width: 300px;
-    height: 260px;
+    height: 240px;
 }
 
 .image-header-5 {
+    float: left;
+    object-fit: cover;
     grid-column: 5/6;
     grid-row: 1/2;
     width: 300px;
-    height: 260px;
+    height: 240px;
 }
 
 .image-header-image {
     width: 300px;
-    height: 260px;
+    height: 240px;
 }
