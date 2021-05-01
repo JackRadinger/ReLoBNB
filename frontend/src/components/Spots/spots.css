@@ -18,9 +18,9 @@
 
 }
 
-a {color:#51513D;}         /* Unvisited link  */
-a:visited {color:#51513D;} /* Visited link    */
-a:hover {color:#51513D;}   /* Mouse over link */
+a {color:#51513D;}        
+a:visited {color:#51513D;}
+a:hover {color:#51513D;}
 a:active {color:#51513D;}
 
 .spot-title {
