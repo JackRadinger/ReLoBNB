@@ -160,8 +160,8 @@ module.exports = {
           'min': 10,
           'max': 50
         }),
-        description: faker.random.words(),
-        address: "Recently renovated, enjoy the comfort of staying on a brand new home with everything brand new. Brand new mattress, comforters, sheets, towels and everything else! Each room is equipped with Smart TV with Netflix included, expensive luxury mattresses with 4 layers sheets & comforters bed setup, air conditioning with air humidifier, high speed internet and so much more! Convenient location close to downtown Chicago, Chinatown, White Sox, Pilsen, South Loop & McCormick Convention Center.",
+        address: faker.address.streetAddress(),
+        description: "Recently renovated, enjoy the comfort of staying on a brand new home with everything brand new. Brand new mattress, comforters, sheets, towels and everything else! Each room is equipped with Smart TV with Netflix included, expensive luxury mattresses with 4 layers sheets & comforters bed setup, air conditioning with air humidifier, high speed internet and so much more! Convenient location close to downtown Chicago, Chinatown, White Sox, Pilsen, South Loop & McCormick Convention Center.",
         city: 'Chicago',
         state: 'Illinois',
         zip: faker.datatype.number({
