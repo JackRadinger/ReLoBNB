@@ -175,7 +175,8 @@ const spotReducer = (state = initialState, action) => {
         case DELETE_REVIEW:
             newState = { ...state }
             const newReviews = newState.reviews.filter(review => review.id !== action.reviewInfo);
-            return newState.reviews = [...newReviews]
+            newState.reviews = [...newReviews]
+            return newState
         default:
             return state;
     }

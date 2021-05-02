@@ -29,6 +29,7 @@ function Spot() {
 
     useEffect(()=> {
         window.scrollTo(0, 0);
+        console.log('here')
     }, [])
 
     useEffect(() => {
@@ -147,7 +148,7 @@ function Spot() {
                     isOpen={openModal}
                     onRequestClose={() => {setOpenModal(false)}}
                     contentLabel='Book?'
-
+                    className='modal'
                     style={customStyles}
                 >
                     <form onSubmit={handleBook}>
