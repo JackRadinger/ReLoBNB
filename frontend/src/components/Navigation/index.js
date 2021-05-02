@@ -30,7 +30,7 @@ function Navigation({ isLoaded }){
     <div className='nav-container'>
       <div className='home'>
         {/* <Logo /> */}
-        <NavLink exact to="/">
+        <NavLink exact to="/home">
           <img src={logo} alt='ReLoBNB Logo' className='logo' />
         </NavLink>
         {/* {isLoaded && sessionLinks} */}

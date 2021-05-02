@@ -39,7 +39,8 @@
 
 .img__container {
     padding-top: 40px;
-    width: 1000px;
+    padding: 40px;
+    width: fit-content;
     margin: 25px;
     background-color: white;
     margin: auto;

@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation";
 import * as sessionActions from "./store/session";
 import HomePage from './components/HomePage/index';
 import Spot from './components/Spot/index';
+import Footer from './components/Footer';
+import SplashPage from './components/SplashPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +23,9 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
+            <SplashPage />
+          </Route>
+          <Route exact path='/home'>
             <HomePage />
           </Route>
           <Route path="/login">
@@ -34,6 +39,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer/>
     </>
   );
 }
