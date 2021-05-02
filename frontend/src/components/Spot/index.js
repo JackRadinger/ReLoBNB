@@ -29,7 +29,7 @@ function Spot() {
 
     useEffect(()=> {
         window.scrollTo(0, 0);
-    })
+    }, [])
 
     useEffect(() => {
         dispatch(spotReducer.getSpot(id));
