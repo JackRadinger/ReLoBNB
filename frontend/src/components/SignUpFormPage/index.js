@@ -34,6 +34,14 @@ function SignupFormPage() {
   return (
       <div className='sign-up-page'>
         <div className='form__container'>
+            <div className='Logo-wrapper'>
+            <div className='logo'>
+                ReLoBNB
+            </div>
+            <div className='sign-up-slogan'>
+                Relocation at Low Cost
+            </div>
+            </div>
             <form onSubmit={handleSubmit} className='login-form'>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}

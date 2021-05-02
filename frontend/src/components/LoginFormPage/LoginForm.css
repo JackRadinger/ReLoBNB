@@ -53,3 +53,38 @@
 .demo-user-btn {
     padding: .25rem;
 }
+
+.Logo-wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.logo {
+    font-size: 190px;
+    font-weight: bold;
+    font-family: Jura;
+    align-self: flex-start;
+    grid-column: 1/12;
+    grid-row: 1/3;
+    color: rgba(240, 234, 215);
+    text-shadow: 2px 2px #000000;
+}
+
+.slogan {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Jura;
+    align-self: flex-end;
+    grid-column: 4/10;
+    grid-row: 3/5;
+}
+
+.sign-up-slogan {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Jura;
+    align-self: flex-end;
+    grid-column: 4/10;
+    grid-row: 2/4;
+}

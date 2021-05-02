@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './LoginForm.css';
+import pic from '../../resources/ReLoBNB-Remove-Background.png'
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -36,6 +37,14 @@ function LoginFormPage() {
   return (
     <div className='login-page'>
       <div className='form__container'>
+        <div className='Logo-wrapper'>
+          <div className='logo'>
+            ReLoBNB
+          </div>
+          <div className='slogan'>
+            Relocation at Low Cost
+          </div>
+        </div>
         <form onSubmit={handleSubmit} className='login-form'>
         <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
