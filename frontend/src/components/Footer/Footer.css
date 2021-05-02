@@ -1,16 +1,16 @@
 .footer-container {
-    display: grid;
-    height: 6em;
-    background-color: rgba(240, 234, 215);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    font-weight: bold;
-    color: rgb(46, 46, 46);
-    border-top: 2px solid rgb(46, 46, 46);
-  }
+  display: grid;
+  height: 6em;
+  background-color: rgba(240, 234, 215);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  font-weight: bold;
+  color: rgb(46, 46, 46);
+  border-top: 2px solid rgb(46, 46, 46);
+}
 
 .quote {
 grid-column: 2 / 9;

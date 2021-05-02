@@ -1,57 +1,8 @@
-.user__container {
-    padding: .5rem;
-}
-
-.password__container {
-    padding: .5rem;
-}
-
-.submit__container {
-    padding: .5rem;
-}
-
-.submit-btn {
-    padding: .25rem;
-}
-
-.login-form {
-    justify-self: center;
-    width: 14rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding-left: 2rem;
-    padding-top: 15px;
-    padding-bottom: 1.5rem;
-    background-color:white;
-}
-
-.form__container {
-    height: 235px;
-    display: flex;
-    justify-content: center;
-    padding-top: 10rem;
-}
-
-.User-tag {
-    font-weight: bold;
-}
-
-.password-tag {
-    font-weight: bold;
-}
 
 .splash-page {
     height: 100%;
     background-image: url('https://relobnb.s3.us-east-2.amazonaws.com/relonewseeddata/SplashPageAWS.jpg');
     background-size: cover;
-}
-
-.demo-user {
-    padding: .5rem;
-}
-
-.demo-user-btn {
-    padding: .25rem;
 }
 
 .Logo-wrapper {
@@ -60,7 +11,7 @@
     grid-template-rows: repeat(4, 1fr);
 }
 
-.logo {
+.splash-logo {
     font-size: 190px;
     font-weight: bold;
     font-family: Jura;
@@ -71,20 +22,12 @@
     text-shadow: 2px 2px #000000;
 }
 
-.slogan {
+.splash-slogan {
     font-size: 40px;
     font-weight: bold;
     font-family: Jura;
-    align-self: flex-end;
+    align-self: flex-start;
     grid-column: 4/10;
-    grid-row: 3/5;
+    grid-row: 3/4;
 }
 
-.sign-up-slogan {
-    font-size: 40px;
-    font-weight: bold;
-    font-family: Jura;
-    align-self: flex-end;
-    grid-column: 4/10;
-    grid-row: 2/4;
-}

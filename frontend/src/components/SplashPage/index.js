@@ -11,10 +11,10 @@ function SplashPage() {
     <div className='splash-page'>
         <div className='form__container'>
             <div className='Logo-wrapper'>
-            <div className='logo'>
+            <div className='splash-logo'>
                 ReLoBNB
             </div>
-            <div className='slogan'>
+            <div className='splash-slogan'>
                 Relocation at Low Cost
             </div>
             </div>
