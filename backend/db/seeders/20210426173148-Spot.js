@@ -14,7 +14,7 @@ module.exports = {
         zip: 37738,
         country: 'United States',
         lat: 35.7143,
-        long: 83.5102,
+        long: -83.5102,
         userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -28,7 +28,7 @@ module.exports = {
         state: 'Tennessee',
         zip: 37738,
         lat: 35.7143,
-        long: 83.5102,
+        long: -83.5102,
         country: 'United States',
         userId: 3,
         createdAt: new Date(),
@@ -43,7 +43,7 @@ module.exports = {
         state: 'California',
         zip: 94016,
         lat: 37.7749,
-        long: 122.4194,
+        long: -122.4194,
         country: 'United States',
         userId: 4,
         createdAt: new Date(),
@@ -61,7 +61,7 @@ module.exports = {
         state: 'California',
         zip: 94016,
         lat: 37.7749,
-        long: 122.4194,
+        long: -122.4194,
         country: 'United States',
         userId: 5,
         createdAt: new Date(),
@@ -76,7 +76,7 @@ module.exports = {
         state: 'California',
         zip: 94016,
         lat: 37.7749,
-        long: 122.4194,
+        long: -122.4194,
         country: 'United States',
         userId: 6,
         createdAt: new Date(),
@@ -91,7 +91,7 @@ module.exports = {
         state: 'California',
         zip: 90001,
         lat: 34.0522,
-        long: 118.2437,
+        long: -118.2437,
         country: 'United States',
         userId: 7,
         createdAt: new Date(),
@@ -106,7 +106,7 @@ module.exports = {
         state: 'California',
         zip: 90001,
         lat: 34.0522,
-        long: 118.2437,
+        long: -118.2437,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -124,7 +124,7 @@ module.exports = {
         state: 'Washington',
         zip: 98101,
         lat: 47.6062,
-        long: 122.3321,
+        long: -122.3321,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -145,7 +145,7 @@ module.exports = {
         state: 'Washington',
         zip: 98101,
         lat: 47.6062,
-        long: 122.3321,
+        long: -122.3321,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -169,7 +169,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 41.8119,
-        long: 87.6298,
+        long: -87.6298,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -193,7 +193,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 41.8119,
-        long: 87.6298,
+        long: -87.6298,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -217,7 +217,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.4406,
-        long: 79.9959,
+        long: -79.9959,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -241,7 +241,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.4406,
-        long: 79.9959,
+        long: -79.9959,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -265,7 +265,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.0583,
-        long: 74.4057,
+        long: -74.4057,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -289,7 +289,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.0583,
-        long: 74.4057,
+        long: -74.4057,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -313,7 +313,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.7128,
-        long: 74.0060,
+        long: -74.0060,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -337,7 +337,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 40.7128,
-        long: 74.0060,
+        long: -74.0060,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,
@@ -361,7 +361,7 @@ module.exports = {
           'max': 99999
         }),
         lat: 32.7767,
-        long: 96.7970,
+        long: -96.7970,
         country: 'United States',
         userId: faker.datatype.number({
           'min': 2,

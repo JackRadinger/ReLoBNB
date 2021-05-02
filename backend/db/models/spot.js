@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     lat: {
-      type: Sequelize.NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull: false
     },
     long: {
-      type: Sequelize.NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull: false
     },
     address: {
