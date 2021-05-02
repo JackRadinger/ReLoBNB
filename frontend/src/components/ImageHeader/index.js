@@ -10,7 +10,7 @@ function ImageHeader() {
 
   const getRandomImages = (spots) => {
     for(let i = 0; i < 5; i++) {
-      let num = Math.floor(Math.random() * 9)
+      let num = Math.floor(Math.random() * spots.length)
       if(spots[num].Images.length){
         let num2 = Math.floor(Math.random() * spots[num].Images.length)
         carouselImages.push(spots[num].Images[num2].url)

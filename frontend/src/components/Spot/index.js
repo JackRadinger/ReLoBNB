@@ -27,8 +27,6 @@ function Spot() {
     const updateComment = (e) => setComment(e.target.value);
     const updateRating = (e) => setRating(e.target.value);
 
-    console.log('HERE', update)
-
     useEffect(()=> {
         window.scrollTo(0, 0);
     })
@@ -36,7 +34,6 @@ function Spot() {
     useEffect(() => {
         dispatch(spotReducer.getSpot(id));
         dispatch(spotReducer.getReviews(id));
-        // window.scrollTo(0, 0);
     }, [dispatch, id, update])
 
 
@@ -51,8 +48,6 @@ function Spot() {
     if (!reviews) {
         return null
     }
-    console.log('here2')
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -105,6 +100,13 @@ function Spot() {
         }
     }
 
+    const lat = spot.lat;
+    const long = spot.long;
+
+    const defaultCenter = {
+        lat: Number(lat), lng: Number(long)
+    }
+
     const val = checkAvailability();
     const newReviews = [...reviews]
     newReviews.reverse()
@@ -126,7 +128,7 @@ function Spot() {
                 </Carousel>
             </div>
             <div className='property__container description'>
-                <div className='title'>{spot.address}</div>
+                <div className='title'>{spot.title}</div>
                 <h5 className='availability'>Availablity: {val}</h5>
                 <div className='cost'>${spot.cost} / Day</div>
                 <div className='city'>
@@ -198,7 +200,7 @@ function Spot() {
                     </form>
                 </div>
                 <div className='google'>
-                    <MapContainer />
+                    <MapContainer defaultCenter={defaultCenter}/>
                 </div>
                 <div className='review-list'>
                     {newReviews.map(review => {

@@ -52,7 +52,7 @@ function FilterSearch({ setFilter, setSearchTerm, setNewSpots, searchTerm, newSp
         Search
       </div>
       <div className='search-bar'>
-        <input onChange={(e) => setSearchTerm(e.target.value)}></input>
+        <input placeholder='City' onChange={(e) => setSearchTerm(e.target.value)}></input>
       </div>
     </div>
   );
