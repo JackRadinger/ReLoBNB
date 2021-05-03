@@ -92,17 +92,17 @@ function Spot() {
             },
             content: {
               position: 'absolute',
-              top: '40px',
-              left: '40px',
-              right: '40px',
-              bottom: '40px',
+              top: '150px',
+              left: '300px',
+              right: '300px',
+              bottom: '300px',
               border: '1px solid #ccc',
               background: '#fff',
               overflow: 'auto',
               WebkitOverflowScrolling: 'touch',
               borderRadius: '4px',
               outline: 'none',
-              padding: '20px',
+              padding: '80px',
             }
 
     };
@@ -162,7 +162,7 @@ function Spot() {
                     isOpen={openModal}
                     onRequestClose={() => {setOpenModal(false)}}
                     contentLabel='Book?'
-                    className='modal'
+                    // className='modal'
                     style={customStyles}
                 >
                     <form onSubmit={handleBook}>
