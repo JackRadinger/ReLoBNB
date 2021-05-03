@@ -16,7 +16,7 @@ function Reviews({review, setUpdate}) {
         if(sessionUser.id === review.User.id) {
             setAuth(false)
         }
-    }, [])
+    }, [sessionUser.id, review.User.id])
 
     if(!spot){
         return null

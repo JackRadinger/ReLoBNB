@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
@@ -30,6 +31,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
+      <NavLink className='host-link' to='/host' style={{ textDecoration: 'none' }}>Host Spots</NavLink>
       <button onClick={openMenu} className='profile-btn'>
           Profile
         <i className="fas fa-user-circle" />
@@ -49,7 +51,7 @@ function ProfileButton({ user }) {
             </label>
           </div>
           <span>
-            <button onClick={logout}>Log Out</button>
+            <button className='log-out-btn' onClick={logout}>Log Out</button>
           </span>
         </ul>
       )}

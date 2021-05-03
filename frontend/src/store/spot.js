@@ -8,13 +8,13 @@ const POST_BOOKING = 'spot/postBooking';
 const SORT_SPOTS = 'spots/sortSpots';
 const DELETE_REVIEW = 'spots/deleteReview';
 
+
 const setSpots = (spots) => {
     return {
         type: SET_SPOTS,
         spots
     }
 }
-
 
 const setSpot = (spot) => {
     return {
@@ -120,11 +120,42 @@ export const deleteReview = (id) => async (dispatch) => {
     });
 
     if(response.ok) {
-        // const review = await response.json();
-        // console.log('deleted review', review)
         dispatch(setDeletedReview(id))
     }
 
+}
+
+export const postSpot = (spotInfo) => async (dispatch) => {
+    console.log(spotInfo)
+    const response = await csrfFetch(`/api/spots/new`, {
+        method: 'POST',
+        body: JSON.stringify(spotInfo),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if(response.ok) {
+        const res = await response.json();
+        console.log(res)
+        return res
+    }
+}
+
+export const postImage = (url, newSpotId) => async (dispatch) => {
+    console.log(url)
+    const response = await csrfFetch(`/api/spots/newImage/${newSpotId}`, {
+        method: 'POST',
+        body: JSON.stringify(url),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    if(response.ok) {
+        const res = await response.json();
+        console.log(res)
+    }
 }
 
 const sortList = (list) => {

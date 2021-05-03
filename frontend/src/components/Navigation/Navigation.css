@@ -33,10 +33,11 @@
     align-self: flex-end;
     height: 30px;
     width: 70px;
-    background-color: #51513D;
+    background-color: transparent;
     border-radius: 15px;
     border: none;
-    color: white;
+    color: #51513D;
+    font-size: 16px;
     /* position: fixed; */
 }
 
@@ -68,4 +69,23 @@
 
 .user-email {
     margin-bottom: 20px;
+}
+
+/* .host-link-button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 70px;
+    background-color: #51513D;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    justify-self: center;
+} */
+
+.host-link {
+    color: white;
+    padding-right: 20px;
+    border-right: 1px solid white;
+    margin-right: 10px;
 }

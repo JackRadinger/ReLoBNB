@@ -1,3 +1,6 @@
+const { response } = require('express');
+const fetch = require("node-fetch");
+const opencage = require('opencage-api-client');
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
@@ -88,6 +91,75 @@ router.post(
     return res.json(
       booking
     )
+  })
+)
+
+router.post(
+  '/new',
+  asyncHandler(async (req, res) => {
+    //API KEY a278a65bf1814904b0cbbf165365346b
+    let coordinants;
+    await opencage.geocode({q: `${req.body.address}`}).then(data => {
+      if (data.status.code === 200) {
+        if (data.results.length > 0) {
+          var place = data.results[0];
+          coordinants = place.geometry
+          lat = place.geometry.lat;
+          long = place.geometry.long;
+        }
+      }
+    }).catch(error => {
+      console.log('error', error.message);
+    });
+
+    const { title, cost, description, address, city, state, country, userId, zip } = req.body;
+    console.log()
+    const spot = await Spot.build({
+      title: title,
+      cost: Number(cost),
+      description: description,
+      address: address,
+      city: city,
+      state: state,
+      zip: Number(zip),
+      country: country,
+      lat: coordinants.lat,
+      long: coordinants.lng,
+      userId: Number(userId),
+      createdAt: new Date(),
+      updatedAt: new Date()
+    })
+
+    await spot.save();
+
+
+    return res.json(spot.id)
+  })
+)
+
+router.post(
+  '/newImage/:id',
+  asyncHandler(async (req, res) => {
+    const { url } = req.body;
+    const newSpotId = req.params.id
+    console.log(url, newSpotId)
+
+    for(let i = 0; i < url.length; i++) {
+      const newUrl = url[i];
+      if(newUrl !== ''){
+        const image = await Image.build({
+          url: newUrl,
+          spotId: newSpotId
+        })
+
+        await image.save();
+
+      }
+    }
+
+
+
+
   })
 )
 

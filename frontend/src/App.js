@@ -9,6 +9,7 @@ import HomePage from './components/HomePage/index';
 import Spot from './components/Spot/index';
 import Footer from './components/Footer';
 import SplashPage from './components/SplashPage';
+import HostSpot from "./components/HostSpot";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path='/spot/:id'>
             <Spot />
+          </Route>
+          <Route path='/host'>
+            <HostSpot />
           </Route>
         </Switch>
       )}

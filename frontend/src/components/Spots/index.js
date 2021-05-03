@@ -10,7 +10,9 @@ function Spots({spot}) {
   if(spot.Images.length) {
     for(let i = 0; i < 3; i++) {
       let image = spot.Images[i]
-      images.push(image)
+      if(image){
+        images.push(image)
+      }
     }
   }
 
