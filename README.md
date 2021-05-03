@@ -2,19 +2,19 @@
 ReLoBNB is an app that allows users to find housing dedicated to relocation at a low cost.
 To explore ReLoBNB click [here](https://relobnb.herokuapp.com/).
 ### Home Page
-![image of home](https://gyazo.com/644ba922be50e0911d20d66cfcea2caf)
+![image of home](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/home.jpg)
 ### Splash Page
-![image of splash](https://gyazo.com/8543ea259ad765dd35e0c097620a70cc)
+![image of splash](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/Splash.jpg)
 ### Login Page
-![image of login](https://gyazo.com/ba3bff1370e19a43acb2b43617e33283)
+![image of login](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/Login.jpg)
 ### Signup Page
-![image of signup](https://gyazo.com/84a9352dec42c36836b96286a44ca837)
+![image of signup](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/sign-up.jpg)
 ### Spot Page
-![image of spot](https://gyazo.com/3855cc5e1832f943ccbd026c0e3cf4ce)
-![image of spot](https://gyazo.com/94a5cb4bc8fd80897556dc1d94d11800)
-![image of spot](https://gyazo.com/c42e6f880d8a519358eecf7315026ff9)
+![image of spot](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/spot.jpg)
+![image of spot](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/description.png)
+![image of spot](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/Review-GoogleMaps.png)
 ### Host Page
-![image of host](https://gyazo.com/9caf12f67e25b2741b0af6b7b66ff1d2)
+![image of host](https://github.com/JackRadinger/ReLoBNB/blob/main/frontend/src/resources/Host.png)
 
 # Structure
 ### Back End
@@ -127,4 +127,3 @@ Allow users to:
 2. update ratings and reviews
 3. update spots
 4. reply to other comments
-
