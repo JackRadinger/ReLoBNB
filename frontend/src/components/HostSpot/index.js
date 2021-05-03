@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as spotReducer from '../../store/spot';
 import './Host.css';
@@ -7,6 +7,7 @@ import './Host.css';
 
 function HostSpot() {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -41,6 +42,7 @@ function HostSpot() {
         const newSpotId = await dispatch(spotReducer.postSpot(spotInfo))
         const url = {url: imageLi}
         dispatch(spotReducer.postImage(url, newSpotId))
+        history.push('/home')
     }
 
     const handleClick = () => {
