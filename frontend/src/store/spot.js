@@ -109,7 +109,7 @@ export const postBooking = (bookingInfo) => async (dispatch) => {
 
     if(response.ok) {
         const booked = await response.json();
-        dispatch(setBooking(booked))
+        // dispatch(setBooking(booked))
         return booked
     }
 }
