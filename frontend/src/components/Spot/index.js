@@ -76,7 +76,7 @@ function Spot() {
         }
 
         await dispatch(spotReducer.postBooking(payload))
-        dispatch(spotReducer.getReviews(id));
+        dispatch(spotReducer.getSpot(id));
         setOpenModal(false)
     }
 
